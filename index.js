@@ -1,20 +1,11 @@
 const express = require('express')
-const app = express()
+const app = express();
 
-let file = ({
-    user: {
-        name: "Mohian",
-        Work: {
-            company: "Akij Group",
-            Designation: "Software Developer"
-        }
-    }
-})
 
 app.get(`/api`, (req, res) => {
-    res.json(file);
+    res.send("Hello")
 })
 
-app.listen(3000, () => {
-    console.log('Server is running  at http://localhost:3000')
+app.listen(8080, () => {
+    console.log("server is running at 8080")
 })
