@@ -1,22 +1,29 @@
 const express = require('express')
 const app = express();
+const cors = require('cors')
 
 // using middleWare for CORS
-const myMiddleWare = (req, res, next) => {
-    console.log('MiddleWare  Applied!')
-    next();
-}
-app.use(myMiddleWare);
+app.use(cors());
 
-let user = {
-    name: 'Mohian',
-    Age: 23,
-    Company: 'Akij',
-    Salary: '20,000'
-}
-
-app.get(`/api`, (req, res) => {
-    res.json(user)
+app.get(`/api/users`, (req, res) => {
+    res.json({
+        users: [
+            {
+                id: 1,
+                name: 'Mohian',
+                Age: 23,
+                Company: 'Akij',
+                Salary: '20,000'
+            },
+            {
+                id: 2,
+                name: 'Dip',
+                Age: 17,
+                Company: 'Student',
+                Salary: 'N/A'
+            }
+        ]
+    })
 })
 
 app.listen(8080, () => {

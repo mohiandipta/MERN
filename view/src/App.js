@@ -2,21 +2,33 @@ import { useState } from "react";
 
 // fetch
 const App = () => {
-  const [user, setUser] = useState('');
+  const [users, setUsers] = useState([]);
 
   const fetchUserData = () => {
     // let endPointURL = 'http://localhost:8080/api'
 
-    fetch(`http://localhost:8080/api`, {
+    fetch(`http://localhost:8080/api/users`, {
       method: 'GET',
     })
       .then((response) => {
         return response.json();
       })
+      .then((data) => setUsers(data.users))
       .catch((err) => console.log(err))
   }
   return (
     <div className='Container'>
+      {/* using json stringify */}
+      {/* <pre>{JSON.stringify(users, null, 4)}</pre> */}
+
+      {/* using map to display every element from json */}
+      {users.map((users) =>
+        <div>
+          {users.name}
+        </div>
+      )}
+
+      {/* button */}
       <button onClick={fetchUserData} className='btn btn-primary'>
         Fetch User Data
       </button>
