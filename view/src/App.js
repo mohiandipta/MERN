@@ -16,6 +16,7 @@ const App = () => {
       .then((data) => setUsers(data.users))
       .catch((err) => console.log(err))
   }
+
   return (
     <div className='Container'>
       {/* using json stringify */}
