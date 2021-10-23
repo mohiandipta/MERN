@@ -24,8 +24,8 @@ const App = () => {
 
       {/* using map to display every element from json */}
       {users.map((users) =>
-        <div>
-          {users.name}
+        <div className='alert alert-primary' key={users.age}>
+          {users.name} age is {users.Age} years oldoi
         </div>
       )}
 

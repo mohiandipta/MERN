@@ -11,16 +11,16 @@ app.get(`/api/users`, (req, res) => {
             {
                 id: 1,
                 name: 'Mohian',
-                Age: 23,
-                Company: 'Akij',
-                Salary: '20,000'
+                age: 23,
+                company: 'Akij',
+                salary: '20,000'
             },
             {
                 id: 2,
                 name: 'Dip',
-                Age: 17,
-                Company: 'Student',
-                Salary: 'N/A'
+                age: 17,
+                company: 'Student',
+                salary: 'N/A'
             }
         ]
     })
