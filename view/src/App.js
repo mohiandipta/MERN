@@ -3,10 +3,15 @@ import { useState } from "react";
 // fetch
 const App = () => {
   const [users, setUsers] = useState([]);
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    fetchPost();
+  }, [users]);
 
+
+  //function for userData fetching
   const fetchUserData = () => {
     // let endPointURL = 'http://localhost:8080/api'
-
     fetch(`http://localhost:8080/api/users`, {
       method: 'GET',
     })
@@ -16,6 +21,20 @@ const App = () => {
       .then((data) => setUsers(data.users))
       .catch((err) => console.log(err))
   }
+
+  //
+  const fetchPost = () => {
+    // let endPointURL = 'http://localhost:8080/api'
+    fetch(`http://localhost:8080/api/users`, {
+      method: 'GET',
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => setUsers(data.users))
+      .catch((err) => console.log(err))
+  }
+
 
   return (
     <div className='Container'>
