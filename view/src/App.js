@@ -31,7 +31,7 @@ const App = () => {
       .catch((err) => console.log(err))
   }
 
-  //
+
   // const fetchPost = () => {
   //   // let endPointURL = 'http://localhost:8080/api'
   //   fetch(`http://localhost:8080/api/users`, {
