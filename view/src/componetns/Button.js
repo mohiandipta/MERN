@@ -4,7 +4,7 @@ import fetchUserData from '../App'
 export const Button = () => {
     return (
         <button onClick={fetchUserData} className='btn btn-primary'>
-
+            Fetch user data
         </button>
     );
 }

@@ -1,26 +1,11 @@
 import { useState } from "react";
-import { Button } from "./componetns/Button";
 // import axios from "axios";
 
 // fetch
 const App = () => {
   const [users, setUsers] = useState([]);
-  // const [posts, setPosts] = useState([]);
-  // useEffect(() => {
-  //   fetchPost();
-  // }, [users]);
 
-
-  //function for userData fetching
   const fetchUserData = () => {
-    // using axios for fetching data
-    //   axios
-    //     .get(`http://localhost:8080/api/users`)
-    //     .then(data => setUsers(data.users))
-    //     .catch(err => console.log(err));
-    // }
-    //////////
-    // let endPointURL = 'http://localhost:8080/api'
     fetch(`http://localhost:8080/api/users`, {
       method: 'GET',
     })
@@ -31,34 +16,16 @@ const App = () => {
       .catch((err) => console.log(err))
   }
 
-
-  // const fetchPost = () => {
-  //   // let endPointURL = 'http://localhost:8080/api'
-  //   fetch(`http://localhost:8080/api/users`, {
-  //     method: 'GET',
-  //   })
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => setUsers(data.users))
-  //     .catch((err) => console.log(err))
-  // }
-
-
   return (
     <div className='Container'>
-      {/* using json stringify */}
-      {/* <pre>{JSON.stringify(users, null, 4)}</pre> */}
-
-      {/* using map to display every element from json */}
-      {users.map((users) =>
-        <div className='alert alert-primary' key={users.age}>
-          {users.name} age is {users.Age} years old
-        </div>
-      )}
+      {users && users.map((user) => <div>
+        {user.name}, and {user.age} years old
+      </div>)}
 
       {/* button */}
-      <Button handleClick={fetchUserData} title='fetch user data' />
+      <button onClick={fetchUserData} className='btn btn-primary'>
+        Fetch user data
+      </button>
     </div>
   )
 }
