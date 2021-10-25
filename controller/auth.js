@@ -17,4 +17,4 @@ exports.users = (req, res) => {
             }
         ]
     })
-}
+};
